@@ -1,0 +1,60 @@
+[tool.poetry]
+name = "auth0-flask"
+version = "0.1.0"
+description = ""
+authors = ["Eric Bittleman <eric.bittleman@leaflink.com>"]
+readme = "README.md"
+packages = [
+    { include = "auth0_flask", from = "src/auth0-flask" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+Flask = "^2.2.0"
+python-dotenv = "^1.0.0"
+Authlib = "^1.2.1"
+requests = "^2.31.0"
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.7.1"
+black = "^23.12.0"
+isort = "^5.13.2"
+ruff = "^0.1.8"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.black]
+line-length = 99 # override black's default line-length
+exclude = '''
+/(
+    \.git
+  | \.mypy_cache
+  | \.pytest_cache
+  | \.llp-leaflets
+  | \.tox
+  | venv
+  | \.venv
+  | \.venv38
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.ruff]
+line-length = 99
+exclude = [
+    "src/experiments",
+    ".*gunicorn_conf.py$",
+    "^src/experiments/.*$",
+    "^src/party-service-alembic/.*$",
+    "^src/party-service/party_service_notebooks/.*$",
+    "^src/party-service-api/party_service_api_notebooks/.*$",
+]
+
+[tool.isort]
+profile = "black"
