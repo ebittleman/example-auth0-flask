@@ -59,11 +59,11 @@ def login():
     return oauth.auth0.authorize_redirect(redirect_uri=url_for("callback", _external=True))
 
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/oauth/callback", methods=["GET", "POST"])
 def callback():
     token = oauth.auth0.authorize_access_token()
     session["user"] = token
-    return redirect("/home")
+    return redirect("/")
 
 
 @app.route("/logout")
@@ -83,7 +83,7 @@ def logout():
     )
 
 
-@app.route("/home")
+@app.route("/")
 def home():
     return render_template(
         "home.html", session=session.get("user"), pretty=json.dumps(session.get("user"), indent=4)
