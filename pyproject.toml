@@ -47,14 +47,7 @@ exclude = '''
 
 [tool.ruff]
 line-length = 99
-exclude = [
-    "src/experiments",
-    ".*gunicorn_conf.py$",
-    "^src/experiments/.*$",
-    "^src/party-service-alembic/.*$",
-    "^src/party-service/party_service_notebooks/.*$",
-    "^src/party-service-api/party_service_api_notebooks/.*$",
-]
+exclude = []
 
 [tool.isort]
 profile = "black"
