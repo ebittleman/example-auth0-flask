@@ -16,6 +16,6 @@ poetry install
 poetry run python -m auth0_flask
 ```
 
-**Visit** http://localhost:8080/home
+**Visit** http://localhost:8080/
 
 **Login**
